@@ -23,7 +23,7 @@ export default function AdminDashboard() {
     <Router>
       <div className="flex bg-gray-100  min-h-screen">
 
-        <div className="bg-gray-800 text-white">
+        <div className='bg-white'>
           <Sidebar />
         </div>
 

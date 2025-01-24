@@ -3,7 +3,7 @@ import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, T
 import { Edit, Delete } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
-export default function Allcategory({data }) {
+export default function Allcategory({data , onCategorySelect , onCategoryDelete }) {
 
   const navigate = useNavigate();
 
@@ -29,8 +29,8 @@ export default function Allcategory({data }) {
                 <TableCell  className='!text-center'>{row.product_count}</TableCell>
                 <TableCell>
                   <div className='flex gap-6 justify-center'>
-                    <Button className='!bg-custom-gradient !px-4 !text-white hover:!bg-[#6610f2]' onClick={() => navigate(`/category/updatecategory?id=${row.category_id}&name=${row.category_name} `)}  startIcon={<Edit/>}>Edit</Button>
-                    <Button className='!bg-[#ff4c51] !text-white hover:!bg-[#ff0000] ' onClick={{}} startIcon={<Delete/>}>Delete</Button>
+                    <Button className='!bg-custom-gradient !px-4 !text-white hover:!bg-[#6610f2]' onClick={() => onCategorySelect({id:row.category_id , name: row.category_name})}  startIcon={<Edit/>}>Edit</Button>
+                    <Button className='!bg-[#ff4c51] !text-white hover:!bg-[#ff0000] ' onClick={() => onCategoryDelete({id:row.category_id , name: row.category_name})} startIcon={<Delete/>}>Delete</Button>
                   </div>
                 </TableCell>
               </TableRow>
